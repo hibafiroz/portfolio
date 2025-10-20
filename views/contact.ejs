@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Hiba Firoz</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-gray-900 text-gray-300 font-sans overflow-x-hidden">
+
+  <!-- Navbar -->
+   <nav class="flex justify-between items-center py-0 px-6 md:px-12 bg-black relative">
+  <!-- Logo -->
+ <a href="/" class="flex-shrink-0">
+  <img src="logo.png" alt="Hiba Firoz Logo" class="h-16 w-auto md:h-20 md:w-auto object-contain" />
+</a>
+
+  <!-- Desktop Menu (md+) -->
+  <ul class="hidden md:flex gap-6 text-sm font-medium items-center">
+    <li><a href="/home" class="text-gray-300 hover:text-gray-400 transition">Home</a></li>
+    <li><a href="/about" class="text-gray-300 hover:text-gray-400 transition">About</a></li>
+    <li><a href="/project" class="text-gray-300 hover:text-gray-400 transition">Projects</a></li>
+    <li><a href="/skill" class="text-gray-300 hover:text-gray-400 transition">Skills</a></li>
+    <li>
+      <a href="/contact" class="border border-gray-400 text-amber-300 px-4 py-1 rounded-full hover:bg-amber-300 hover:text-black transition">
+        Contact
+      </a>
+    </li>
+  </ul>
+
+  <!-- Hamburger button (mobile) -->
+  <button id="menu-btn" class="block md:hidden text-gray-300 focus:outline-none z-50">
+    <i class="fas fa-bars text-2xl"></i>
+  </button>
+
+  <!-- Mobile menu overlay -->
+  <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-90 z-40 hidden md:hidden">
+    <ul class="flex flex-col justify-center items-center h-full gap-8 text-lg">
+      <li><a href="/home" class="text-gray-300 hover:text-gray-400" onclick="closeMenu()">Home</a></li>
+      <li><a href="/about" class="text-gray-300 hover:text-gray-400" onclick="closeMenu()">About</a></li>
+      <li><a href="/project" class="text-gray-300 hover:text-gray-400" onclick="closeMenu()">Projects</a></li>
+      <li><a href="/skill" class="text-gray-300 hover:text-gray-400" onclick="closeMenu()">Skills</a></li>
+      <li>
+        <a href="/contact" class="border border-gray-400 text-amber-300 px-4 py-1 rounded-full hover:bg-amber-300 hover:text-black transition" onclick="closeMenu()">
+          Contact
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+  <!-- Main Content -->
+  <div class="flex flex-col md:flex-row w-full max-w-6xl px-4 md:px-12 gap-12 mt-2 mx-auto">
+
+    <!-- Left Side: Contact Form -->
+   <!-- Left Side: Contact Form -->
+<div class="flex-1 flex flex-col justify-center relative">
+  <h2 class="text-4xl font-bold text-white mb-4">Get in <span class="text-amber-400">Touch</span></h2>
+  <p class="text-gray-400 mb-8">
+    Let’s connect! Send a message through the form or contact me directly. I’ll reply as soon as I can.
+  </p>
+
+  <form action="https://formsubmit.co/hibafiroz06@gmail.com" method="POST" class="flex flex-col gap-6 relative" id="gform">
+
+     <!-- Disable captcha and thankyou page -->
+   <input type="hidden" name="_captcha" value="false">
+   <input type="hidden" name="_next" value="http://localhost:5505/contact">
+    <!-- Name -->
+    <div class="relative">
+      <input type="text" name="name" placeholder="Your Name" id="username"
+             class="bg-gray-800 text-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:border-amber-400 border border-gray-600 w-full">
+      <p id="usernameFeedback" class="text-red-500 text-sm absolute top-full left-0 mb-1 hidden"></p>
+    </div>
+
+    <!-- Email -->
+    <div class="relative">
+      <input type="email" name="email" placeholder="Your Email" id="email"
+             class="bg-gray-800 text-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:border-amber-400 border border-gray-600 w-full">
+      <p id="emailFeedback" class="text-red-500 text-sm absolute top-full left-0 mb-1 hidden"></p>
+    </div>
+
+    <!-- Message -->
+    <div class="relative">
+      <textarea name="message" rows="5" placeholder="Your Message" id="message"
+                class="bg-gray-800 text-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:border-amber-400 border border-gray-600 resize-none w-full"></textarea>
+      <p id="msgFeedback" class="text-red-500 text-sm absolute top-full left-0 mb-1 hidden"></p>
+      <p id="feedback" class="text-red-500 text-sm absolute top-full left-0 mb-1 hidden"></p>
+      <p id="feedbacksuccess" class="text-green-500 text-sm absolute top-full left-0 mb-1 hidden"></p>
+    </div>
+
+    <button type="submit" class="bg-gray-400 text-black py-3 rounded-lg font-semibold hover:bg-amber-500 transition">
+      SEND MESSAGE
+    </button>
+  </form>
+</div>
+
+<!-- Right Side: Yellow Shape with Image -->
+<div class="flex-1 flex items-center justify-center">
+  <div class="relative w-80 h-80 md:w-96 md:h-96 flex-shrink-0">
+    <!-- Yellow Shape -->
+    <div class="absolute inset-0 bg-gray-400 rounded-[50%_20%_50%_20%]"></div>
+    <!-- Image inside shape -->
+    <img src="hibu.png" alt="Hiba Firoz" class="absolute inset-0 w-full h-full object-cover rounded-[50%_20%_50%_20%] shadow-2xl">
+  </div>
+</div>
+
+
+  </div>
+<script>
+  const form=document.getElementById('gform')
+  const usernameFeedback=document.getElementById('usernameFeedback')
+  const emailFeedback=document.getElementById('emailFeedback')
+  const msgFeedback=document.getElementById('msgFeedback')
+  const feedback=document.getElementById('feedback')
+  const feedbacksuccess=document.getElementById('feedbacksuccess')
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu')
+
+    menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+  
+  form.addEventListener('submit',(e)=>{
+
+  feedback.textContent = ''
+  usernameFeedback.textContent = ""
+  emailFeedback.textContent = ""
+  msgFeedback.textContent = ""
+
+  if (!username.value && !email.value && !message.value) {
+        e.preventDefault()
+        feedback.textContent = 'Please fill out the form'
+        feedback.classList.remove('hidden')
+        return
+      }
+
+      const usernamePattern = /^[A-Za-z ]+$/;
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const msgPattern = /^[A-Za-z ]+$/;
+
+      let isValid = true
+
+      if (!username.value || !usernamePattern.test(username.value)) {
+        e.preventDefault();
+        usernameFeedback.textContent ="Username can only have letters and spaces";
+        usernameFeedback.classList.remove("hidden");
+        isValid = false
+      }
+
+      if (!email.value || !emailPattern.test(email.value)) {
+        e.preventDefault();
+        emailFeedback.textContent = "Please enter a valid email";
+        emailFeedback.classList.remove("hidden");
+        isValid = false
+      }
+
+      if (!message.value || !msgPattern.test(message.value)) {
+        e.preventDefault();
+        msgFeedback.textContent = "Message should contain letters"
+        msgFeedback.classList.remove("hidden");
+        isValid = false;
+      }
+
+      if(isValid){
+        feedbacksuccess.textContent='Message sent successfully'
+        feedbacksuccess.classList.remove('hidden')
+      }
+  })
+</script>
+</body>
+</html>
