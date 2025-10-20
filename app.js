@@ -1,9 +1,10 @@
 const express = require('express')
 const app = express()
 const path = require('path')
+const dotenv=require('dotenv').config()
 const userRouter = require('./Routes/user-route')
 const adminRouter = require('./Routes/admin-route')
-const PORT = 5505
+const PORT = process.env.PORT
 
 app.use(express.json())
 app.use(express.static(path.join('public')))

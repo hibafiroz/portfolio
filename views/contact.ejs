@@ -51,63 +51,66 @@
   </div>
 </nav>
 
-  <!-- Main Content -->
-  <div class="flex flex-col md:flex-row w-full max-w-6xl px-4 md:px-12 gap-12 mt-2 mx-auto">
 
-    <!-- Left Side: Contact Form -->
-   <!-- Left Side: Contact Form -->
-<div class="flex-1 flex flex-col justify-center relative">
-  <h2 class="text-4xl font-bold text-white mb-4">Get in <span class="text-amber-400">Touch</span></h2>
-  <p class="text-gray-400 mb-8">
-    Let’s connect! Send a message through the form or contact me directly. I’ll reply as soon as I can.
-  </p>
+<!-- Main Content -->
+<div class="flex flex-col md:flex-row w-full max-w-6xl mt-4 px-4 md:px-12 gap-12 mx-auto">
 
-  <form action="https://formsubmit.co/hibafiroz06@gmail.com" method="POST" class="flex flex-col gap-6 relative" id="gform">
+  <!-- Left Side: Contact Form -->
+  <div class="flex-1 flex flex-col mt-28 md:mt-0 justify-center items-center md:items-start text-center md:text-left">
+    <h2 class="text-4xl font-bold text-white mb-2">Get in <span class="text-amber-400">Touch</span></h2>
+    <p class="text-gray-400 mb-4">
+      Let’s connect! Send a message through the form or contact me directly. I’ll reply as soon as I can.
+    </p>
 
-     <!-- Disable captcha and thankyou page -->
-   <input type="hidden" name="_captcha" value="false">
-   <input type="hidden" name="_next" value="http://localhost:5505/contact">
-    <!-- Name -->
-    <div class="relative">
-      <input type="text" name="name" placeholder="Your Name" id="username"
-             class="bg-gray-800 text-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:border-amber-400 border border-gray-600 w-full">
-      <p id="usernameFeedback" class="text-red-500 text-sm absolute top-full left-0 mb-1 hidden"></p>
+    <form action="https://formsubmit.co/hibafiroz06@gmail.com" method="POST" class="flex flex-col gap-6 w-full max-w-md"
+          id="gform">
+      
+      <!-- Disable captcha and thankyou page -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="http://localhost:5505/contact">
+
+      <!-- Name -->
+      <div class="relative w-full">
+        <input type="text" name="name" placeholder="Your Name" id="username"
+               class="bg-gray-800 text-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:border-amber-400 border border-gray-600 w-full">
+        <p id="usernameFeedback" class="text-red-500 text-sm absolute top-full left-0 mb-1 hidden"></p>
+      </div>
+
+      <!-- Email -->
+      <div class="relative w-full">
+        <input type="email" name="email" placeholder="Your Email" id="email"
+               class="bg-gray-800 text-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:border-amber-400 border border-gray-600 w-full">
+        <p id="emailFeedback" class="text-red-500 text-sm absolute top-full left-0 mb-1 hidden"></p>
+      </div>
+
+      <!-- Message -->
+      <div class="relative w-full">
+        <textarea name="message" rows="5" placeholder="Your Message" id="message"
+                  class="bg-gray-800 text-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:border-amber-400 border border-gray-600 resize-none w-full"></textarea>
+        <p id="msgFeedback" class="text-red-500 text-sm absolute top-full left-0 mb-1 hidden"></p>
+        <p id="feedback" class="text-red-500 text-sm absolute top-full left-0 mb-1 hidden"></p>
+        <p id="feedbacksuccess" class="text-green-500 text-sm absolute top-full left-0 mb-1 hidden"></p>
+      </div>
+
+      <button type="submit" class="bg-gray-400 text-black py-3 rounded-lg font-semibold hover:bg-amber-500 transition w-full">
+        SEND MESSAGE
+      </button>
+    </form>
+  </div>
+
+  <!-- Right Side: Yellow Shape with Image -->
+  <div class="flex-1 flex items-center justify-center hidden md:flex">
+    <div class="relative w-80 h-80 md:w-96 md:h-96 flex-shrink-0">
+      <!-- Yellow Shape -->
+      <div class="absolute inset-0 bg-gray-400 rounded-[50%_20%_50%_20%]"></div>
+      <!-- Image inside shape -->
+      <img src="hibu.png" alt="Hiba Firoz" class="absolute inset-0 w-full h-full object-cover rounded-[50%_20%_50%_20%] shadow-2xl">
     </div>
+  </div>
 
-    <!-- Email -->
-    <div class="relative">
-      <input type="email" name="email" placeholder="Your Email" id="email"
-             class="bg-gray-800 text-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:border-amber-400 border border-gray-600 w-full">
-      <p id="emailFeedback" class="text-red-500 text-sm absolute top-full left-0 mb-1 hidden"></p>
-    </div>
-
-    <!-- Message -->
-    <div class="relative">
-      <textarea name="message" rows="5" placeholder="Your Message" id="message"
-                class="bg-gray-800 text-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:border-amber-400 border border-gray-600 resize-none w-full"></textarea>
-      <p id="msgFeedback" class="text-red-500 text-sm absolute top-full left-0 mb-1 hidden"></p>
-      <p id="feedback" class="text-red-500 text-sm absolute top-full left-0 mb-1 hidden"></p>
-      <p id="feedbacksuccess" class="text-green-500 text-sm absolute top-full left-0 mb-1 hidden"></p>
-    </div>
-
-    <button type="submit" class="bg-gray-400 text-black py-3 rounded-lg font-semibold hover:bg-amber-500 transition">
-      SEND MESSAGE
-    </button>
-  </form>
 </div>
 
-<!-- Right Side: Yellow Shape with Image -->
-<div class="flex-1 flex items-center justify-center">
-  <div class="relative w-80 h-80 md:w-96 md:h-96 flex-shrink-0">
-    <!-- Yellow Shape -->
-    <div class="absolute inset-0 bg-gray-400 rounded-[50%_20%_50%_20%]"></div>
-    <!-- Image inside shape -->
-    <img src="hibu.png" alt="Hiba Firoz" class="absolute inset-0 w-full h-full object-cover rounded-[50%_20%_50%_20%] shadow-2xl">
-  </div>
-</div>
 
-
-  </div>
 <script>
   const form=document.getElementById('gform')
   const usernameFeedback=document.getElementById('usernameFeedback')
@@ -171,3 +174,4 @@
 </script>
 </body>
 </html>
+
