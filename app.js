@@ -3,7 +3,6 @@ const app = express()
 const path = require('path')
 const dotenv=require('dotenv').config()
 const userRouter = require('./Routes/user-route')
-const adminRouter = require('./Routes/admin-route')
 const PORT = process.env.PORT
 
 app.use(express.json())
@@ -12,10 +11,9 @@ app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 
 app.use('/',userRouter)
-app.use('/admin', adminRouter)
 
-app.get('/home', (req, res) => {
+app.get('/', (req, res) => {
     res.render('home')
 })
 
-app.listen(PORT,()=>console.log(`http://localhost:${PORT}/home`))
+app.listen(PORT,()=>console.log(`http://localhost:${PORT}`))
