@@ -19,7 +19,7 @@
 
   <!-- Desktop Menu (md+) -->
   <ul class="hidden md:flex gap-6 text-sm font-medium items-center">
-    <li><a href="/home" class="text-gray-300 hover:text-gray-400 transition">Home</a></li>
+    <li><a href="/" class="text-gray-300 hover:text-gray-400 transition">Home</a></li>
     <li><a href="/about" class="text-gray-300 hover:text-gray-400 transition">About</a></li>
     <li><a href="/project" class="text-amber-400 transition">Projects</a></li>
     <li><a href="/skill" class="text-gray-300 hover:text-gray-400">Skills</a></li>
@@ -38,7 +38,7 @@
   <!-- Mobile menu overlay -->
   <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-90 z-40 hidden md:hidden">
     <ul class="flex flex-col justify-center items-center h-full gap-8 text-lg">
-      <li><a href="/home" class="text-gray-300 hover:text-gray-400" onclick="closeMenu()">Home</a></li>
+      <li><a href="/" class="text-gray-300 hover:text-gray-400" onclick="closeMenu()">Home</a></li>
       <li><a href="/about" class="text-gray-300 hover:text-gray-400" onclick="closeMenu()">About</a></li>
       <li><a href="/project" class="text-gray-300 hover:text-gray-400" onclick="closeMenu()">Projects</a></li>
       <li><a href="/skill" class="text-gray-300 hover:text-gray-400" onclick="closeMenu()">Skills</a></li>
@@ -116,39 +116,35 @@
   </div>
 
   <!-- Modal 2 -->
-   <div id="modal1"
+   <div id="modal2"
     class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center z-50 transition-opacity duration-300">
     <div
       class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-6 w-11/12 md:w-2/3 lg:w-1/2 text-white transform scale-95 opacity-0 transition-all duration-300 modal-content">
       <h2 class="text-2xl font-semibold mb-4">School Portal</h2>
       <p class="text-gray-200 leading-relaxed mb-4">
-       The Student–Admin Portal is a role-based web application designed to improve communication between school administrators and students. Built using Node.js, Express.js, EJS, and session-based authentication, the platform provides separate dashboards for Admin and Student users.
-
-Admins can securely log in, manage student records, and post important announcements, notices, or updates. Students can log in to their own dashboard to access personalized information and view bulletins shared by the admin. The project includes protected routes, form validation, and a responsive UI for a smooth user experience.
-
-This system helps replace manual communication with a simple, centralized, and well-organized digital solution.
-      </p>
+       The Student–Admin Portal is a role-based web application designed to improve communication between school administrators and students. Built using Node.js, Express.js, EJS, and JWT-based authentication, the platform provides separate dashboards for Admin and Student users.
+       Admins can securely log in, manage student records, and post important announcements, notices, or updates. Students can log in to their own dashboard to access personalized information and view bulletins shared by the admin and Real-time chat with each students. 
       <p class="mb-3 font-medium text-white">Features:</p>
       <ul class="text-gray-300 text-sm mb-4 list-disc pl-5">
-        <li>Role-Based Login – Separate authentication for Admin and Student users with secure session management.</li>
-        <li>Admin Dashboard – Admin can post announcements, manage student data, and monitor activity.</li>
-        <li>Student Dashboard – Students can log in to view personalized updates, notices, and bulletins shared by the Admin.</li>
+        <li>Role-Based Login – Separate authentication for Admin and Student users.</li>
+        <li>Admin Dashboard – Admin can post announcements, manage student data</li>
+        <li>Student Dashboard – Students can log in to view notices, bulletins shared by the Admin and chat with each other.</li>
         <li>Bulletin/Notice Board System – Real-time posts from Admin are instantly visible to all students.</li>
-        <li>Protected Routes – Only authorized users can access dashboard pages (prevents URL-based access).</li>
-        <li>Form Validation – Validations for login and input fields to avoid incorrect or empty submissions.</li>
+        <li>Protected Routes – Only authorized users can access dashboard pages</li>
+        <li>Form Validation – Validations for login and input fields to avoid incorrect/empty submissions.</li>
         <li>Responsive UI – Works smoothly on desktop, tablet, and mobile devices.</li>
-        <li>Logout & Session Handling – Automatic session management to maintain security</li>
+        <li>Logout & JWT Handling – maintain security</li>
       </ul>
       <p class="mb-3 font-medium text-white">Tech Stack:</p>
       <p class="text-gray-300 text-sm mb-6">Backend: Node.js, Express.js
 
-Frontend: EJS, HTML, CSS, Bootstrap/Tailwind (whichever you used)
+Frontend: EJS, HTML, CSS, Tailwind
 
-Authentication: Express-Session
+Authentication: JWT
 
-Database: (Tell me if you used MongoDB / MySQL — I’ll add it)</p>
+Database: JSON file</p>
       <div class="flex justify-end">
-        <button onclick="closeModal('modal1')" class="bg-white/20 hover:bg-red-500 text-white px-4 py-2 rounded-lg">
+        <button onclick="closeModal('modal2')" class="bg-white/20 hover:bg-red-500 text-white px-4 py-2 rounded-lg">
           Close
         </button>
       </div>
