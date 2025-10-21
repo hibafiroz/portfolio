@@ -62,40 +62,34 @@
       Let’s connect! Send a message through the form or contact me directly. I’ll reply as soon as I can.
     </p>
 
-    <form action="https://formsubmit.co/hibafiroz06@gmail.com" method="POST" class="flex flex-col gap-6 w-full max-w-md"
-          id="gform">
-      
-      <!-- Disable captcha and thankyou page -->
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="http://localhost:5505/contact">
+    <form id="gform" class="flex flex-col gap-6 w-full max-w-md">
+  <!-- Name -->
+  <div class="relative w-full">
+    <input type="text" name="name" placeholder="Your Name" id="username"
+           class="bg-gray-800 text-gray-200 px-4 py-3 rounded-lg border border-gray-600 w-full">
+    <p id="usernameFeedback" class="text-red-500 text-sm absolute top-full left-0 mb-1 hidden"></p>
+  </div>
 
-      <!-- Name -->
-      <div class="relative w-full">
-        <input type="text" name="name" placeholder="Your Name" id="username"
-               class="bg-gray-800 text-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:border-amber-400 border border-gray-600 w-full">
-        <p id="usernameFeedback" class="text-red-500 text-sm absolute top-full left-0 mb-1 hidden"></p>
-      </div>
+  <!-- Email -->
+  <div class="relative w-full">
+    <input type="email" name="email" placeholder="Your Email" id="email"
+           class="bg-gray-800 text-gray-200 px-4 py-3 rounded-lg border border-gray-600 w-full">
+    <p id="emailFeedback" class="text-red-500 text-sm absolute top-full left-0 mb-1 hidden"></p>
+  </div>
 
-      <!-- Email -->
-      <div class="relative w-full">
-        <input type="email" name="email" placeholder="Your Email" id="email"
-               class="bg-gray-800 text-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:border-amber-400 border border-gray-600 w-full">
-        <p id="emailFeedback" class="text-red-500 text-sm absolute top-full left-0 mb-1 hidden"></p>
-      </div>
+  <!-- Message -->
+  <div class="relative w-full">
+    <textarea name="message" rows="5" placeholder="Your Message" id="message"
+              class="bg-gray-800 text-gray-200 px-4 py-3 rounded-lg border border-gray-600 w-full"></textarea>
+    <p id="msgFeedback" class="text-red-500 text-sm absolute top-full left-0 mb-1 hidden"></p>
+    <p id="feedbacksuccess" class="text-green-500 text-sm absolute top-full left-0 mb-1 hidden"></p>
+  </div>
 
-      <!-- Message -->
-      <div class="relative w-full">
-        <textarea name="message" rows="5" placeholder="Your Message" id="message"
-                  class="bg-gray-800 text-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:border-amber-400 border border-gray-600 resize-none w-full"></textarea>
-        <p id="msgFeedback" class="text-red-500 text-sm absolute top-full left-0 mb-1 hidden"></p>
-        <p id="feedback" class="text-red-500 text-sm absolute top-full left-0 mb-1 hidden"></p>
-        <p id="feedbacksuccess" class="text-green-500 text-sm absolute top-full left-0 mb-1 hidden"></p>
-      </div>
+  <button type="submit" class="bg-gray-400 text-black py-3 rounded-lg font-semibold hover:bg-amber-500 transition w-full">
+    SEND MESSAGE
+  </button>
+</form>
 
-      <button type="submit" class="bg-gray-400 text-black py-3 rounded-lg font-semibold hover:bg-amber-500 transition w-full">
-        SEND MESSAGE
-      </button>
-    </form>
   </div>
 
   <!-- Right Side: Yellow Shape with Image -->
@@ -112,65 +106,84 @@
 
 
 <script>
-  const form=document.getElementById('gform')
-  const usernameFeedback=document.getElementById('usernameFeedback')
-  const emailFeedback=document.getElementById('emailFeedback')
-  const msgFeedback=document.getElementById('msgFeedback')
-  const feedback=document.getElementById('feedback')
-  const feedbacksuccess=document.getElementById('feedbacksuccess')
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu')
+  const form = document.getElementById('gform');
+const username = document.getElementById('username');
+const email = document.getElementById('email');
+const message = document.getElementById('message');
+const usernameFeedback = document.getElementById('usernameFeedback');
+const emailFeedback = document.getElementById('emailFeedback');
+const msgFeedback = document.getElementById('msgFeedback');
+const feedbacksuccess = document.getElementById('feedbacksuccess');
 
-    menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-  });
-  
-  form.addEventListener('submit',(e)=>{
+form.addEventListener('submit', async (e) => {
+  e.preventDefault()
 
-  feedback.textContent = ''
-  usernameFeedback.textContent = ""
-  emailFeedback.textContent = ""
-  msgFeedback.textContent = ""
+  // Clear feedback
+  usernameFeedback.textContent = '';
+  emailFeedback.textContent = '';
+  msgFeedback.textContent = '';
+  feedbacksuccess.textContent = '';
 
-  if (!username.value && !email.value && !message.value) {
-        e.preventDefault()
-        feedback.textContent = 'Please fill out the form'
-        feedback.classList.remove('hidden')
-        return
-      }
+  // Validation
+  const usernamePattern = /^[A-Za-z ]+$/
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
-      const usernamePattern = /^[A-Za-z ]+$/;
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      const msgPattern = /^[A-Za-z ]+$/;
+  let isValid = true
 
-      let isValid = true
+  if (!username.value || !usernamePattern.test(username.value)) {
+    usernameFeedback.textContent = "Name can only have letters and spaces";
+    usernameFeedback.classList.remove("hidden");
+    isValid = false;
+  }
 
-      if (!username.value || !usernamePattern.test(username.value)) {
-        e.preventDefault();
-        usernameFeedback.textContent ="Username can only have letters and spaces";
-        usernameFeedback.classList.remove("hidden");
-        isValid = false
-      }
+  if (!email.value || !emailPattern.test(email.value)) {
+    emailFeedback.textContent = "Please enter a valid email";
+    emailFeedback.classList.remove("hidden");
+    isValid = false;
+  }
 
-      if (!email.value || !emailPattern.test(email.value)) {
-        e.preventDefault();
-        emailFeedback.textContent = "Please enter a valid email";
-        emailFeedback.classList.remove("hidden");
-        isValid = false
-      }
+  if (!message.value) {
+    msgFeedback.textContent = "Please enter your message!";
+    msgFeedback.classList.remove("hidden");
+    isValid = false;
+  }
 
-      if (!message.value || !msgPattern.test(message.value)) {
-        e.preventDefault();
-        msgFeedback.textContent = "Message should contain letters"
-        msgFeedback.classList.remove("hidden");
-        isValid = false;
-      }
+  if (!isValid) return;
 
-      if(isValid){
-        feedbacksuccess.textContent='Message sent successfully'
-        feedbacksuccess.classList.remove('hidden')
-      }
-  })
+  // Prepare form data
+  const formData = new FormData();
+  formData.append('name', username.value);
+  formData.append('email', email.value);
+  formData.append('message', message.value);
+  formData.append('_captcha', 'false'); // disable captcha
+
+  try {
+    // Send form data to FormSubmit
+    const response = await fetch('https://formsubmit.co/ajax/hibafiroz06@gmail.com', {
+      method: 'POST',
+      body: formData,
+    });
+
+    const result = await response.json();
+
+    if (result.success === 'true' || result.success) {
+      feedbacksuccess.textContent = 'Message sent successfully!';
+      feedbacksuccess.classList.remove('hidden');
+
+      // Clear form inputs
+      username.value = '';
+      email.value = '';
+      message.value = '';
+    } else {
+      feedbacksuccess.textContent = 'Something went wrong. Try again.';
+      feedbacksuccess.classList.remove('hidden');
+    }
+  } catch (error) {
+    feedbacksuccess.textContent = 'Submission failed. Check your internet connection.';
+    feedbacksuccess.classList.remove('hidden');
+  }
+});
+
 </script>
 </body>
 </html>
