@@ -58,16 +58,16 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-5xl">
 
       <!-- Project 1 -->
-      <div class="bg-gray-900 border border-gray-700 rounded-xl p-6 shadow-lg hover:bg-gray-700 transition">
-        <h3 class="text-xl font-semibold text-white mb-3">Cosmetics Cencia</h3>
+       <div class="bg-gray-900 border border-gray-700 rounded-xl p-6 shadow-lg hover:bg-gray-700 transition">
+        <h3 class="text-xl font-semibold text-white mb-3">Job Portal</h3>
         <p class="text-gray-400 text-sm mb-6">
-          A responsive beauty-brand website built using HTML, Tailwind CSS, and JavaScript, featuring product sections, a modal profile, an FAQ toggle, and a contact form with validation for a smooth user experience.
-        </p>
-        <div class="flex justify-between items-center">
-          <a href="https://hibafiroz.github.io/cosmetics/" target="_blank" class="text-amber-400 hover:underline">Live Demo</a>
-          <button onclick="openModal('modal1')" class="text-gray-400 hover:text-white">See More</button>
-        </div>
-      </div>
+    A full-stack job portal web application developed during my CodSoft internship, featuring role-based authentication for users, recruiters, and admins. Recruiters can post and manage jobs, admins approve listings before publishing, and candidates can apply for jobs and receive email notifications on shortlisting or rejection.
+  </p>
+  <div class="flex justify-between items-center">
+    <a href="https://codsoft-73rs.vercel.app/" target="_blank" class="text-amber-400 hover:underline">Live Demo</a>
+    <button onclick="openModal('modalJobPortal')" class="text-gray-400 hover:text-white">See More</button>
+  </div>
+</div>
 
       <!-- Project 2 -->
       <div class="bg-gray-900 border border-gray-700 rounded-xl p-6 shadow-lg hover:bg-gray-700 transition">
@@ -81,10 +81,66 @@
         </div>
       </div>
 
+      <!-- Project-3 -->
+        <div class="bg-gray-900 border border-gray-700 rounded-xl p-6 shadow-lg hover:bg-gray-700 transition">
+        <h3 class="text-xl font-semibold text-white mb-3">Cosmetics Cencia</h3>
+        <p class="text-gray-400 text-sm mb-6">
+          A responsive beauty-brand website built using HTML, Tailwind CSS, and JavaScript, featuring product sections, a modal profile, an FAQ toggle, and a contact form with validation for a smooth user experience.
+        </p>
+        <div class="flex justify-between items-center">
+          <a href="https://hibafiroz.github.io/cosmetics/" target="_blank" class="text-amber-400 hover:underline">Live Demo</a>
+          <button onclick="openModal('modal1')" class="text-gray-400 hover:text-white">See More</button>
+        </div>
+      </div>
+    
     </div>
   </section>
 
-  <!-- Modal 1 -->
+  <!-- Job Portal Modal -->
+<div id="modalJobPortal"
+  class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center z-50 transition-opacity duration-300">
+  <div
+    class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-6 w-11/12 md:w-2/3 lg:w-1/2 text-white transform scale-95 opacity-0 transition-all duration-300 modal-content">
+    
+    <h2 class="text-2xl font-semibold mb-4">Job Portal Web Application</h2>
+
+    <p class="text-gray-200 leading-relaxed mb-4">
+      A full-stack job portal web application developed as part of my CodSoft internship. This platform
+      is designed with role-based access for candidates, recruiters, and admins, providing a structured
+      and secure job hiring workflow. Recruiters can post job listings, admins review and approve them,
+      and candidates can apply for jobs through a clean and responsive interface.
+    </p>
+
+    <p class="mb-3 font-medium text-white">Features:</p>
+    <ul class="text-gray-300 text-sm mb-4 list-disc pl-5">
+      <li>User, Recruiter & Admin authentication</li>
+      <li>Role-based access control</li>
+      <li>Admin approval system for job postings</li>
+      <li>Featured job listings</li>
+      <li>Recruiter job management dashboard</li>
+      <li>Candidate job application flow</li>
+      <li>Email notifications using Nodemailer</li>
+      <li>Protected routes with sessions</li>
+      <li>Responsive UI (desktop & mobile)</li>
+      <li>Custom error pages & form validation</li>
+    </ul>
+
+    <p class="mb-3 font-medium text-white">Tech Stack:</p>
+    <p class="text-gray-300 text-sm mb-6">
+      Node.js • Express.js • MongoDB • EJS • Tailwind CSS • JavaScript • Nodemailer
+    </p>
+
+    <div class="flex justify-end">
+      <button onclick="closeModal('modalJobPortal')"
+        class="bg-white/20 hover:bg-red-500 text-white px-4 py-2 rounded-lg">
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Cosmetics modal -->
   <div id="modal1"
     class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center z-50 transition-opacity duration-300">
     <div
@@ -115,15 +171,15 @@
     </div>
   </div>
 
-  <!-- Modal 2 -->
+  <!-- School portal modal -->
    <div id="modal2"
     class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center z-50 transition-opacity duration-300">
     <div
       class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-6 w-11/12 md:w-2/3 lg:w-1/2 text-white transform scale-95 opacity-0 transition-all duration-300 modal-content">
       <h2 class="text-2xl font-semibold mb-4">School Portal</h2>
-      <p class="text-gray-200 leading-relaxed mb-4">
+      <p class="text-gray-200 text-sm leading-relaxed mb-4">
        The Student–Admin Portal is a role-based web application designed to improve communication between school administrators and students. Built using Node.js, Express.js, EJS, and JWT-based authentication, the platform provides separate dashboards for Admin and Student users.
-       Admins can securely log in, manage student records, and post important announcements, notices, or updates. Students can log in to their own dashboard to access personalized information and view bulletins shared by the admin and Real-time chat with each students. 
+       Admins can securely log in, manage student records, and post important announcements, notices, or updates. 
       <p class="mb-3 font-medium text-white">Features:</p>
       <ul class="text-gray-300 text-sm mb-4 list-disc pl-5">
         <li>Role-Based Login – Separate authentication for Admin and Student users.</li>
